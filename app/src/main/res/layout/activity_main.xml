@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#7730DC"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:text="Выберите сложность игры и нажмите на кнопку
+        `СТАРТ`, когда будете готовы начать"
+        android:textSize="6pt"/>
+
+    <TableLayout
+        android:id="@+id/tableLayout_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/text_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button_easy"
+                android:onClick="buttonSelectDifficult"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_margin="3dp"
+                app:cornerRadius="10dp"
+                android:padding="3dp"
+                android:text="ЛЕГКО"
+                android:backgroundTint="#FFEB3B"
+                android:textColor="@color/black"
+                android:textSize="10dp" />
+
+            <Button
+                android:id="@+id/button_medium"
+                android:onClick="buttonSelectDifficult"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_margin="3dp"
+                app:cornerRadius="10dp"
+                android:padding="3dp"
+                android:text="СРЕДНЕ"
+                android:backgroundTint="#FFEB3B"
+                android:textColor="@color/black"
+                android:textSize="10dp" />
+
+            <Button
+                android:id="@+id/button_hard"
+                android:onClick="buttonSelectDifficult"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_margin="3dp"
+                app:cornerRadius="10dp"
+                android:padding="3dp"
+                android:text="ТЯЖЕЛО"
+                android:backgroundTint="#FFEB3B"
+                android:textColor="@color/black"
+                android:textSize="10dp" />
+
+        </TableRow>
+    </TableLayout>
+
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:id="@+id/hint"
+        app:layout_constraintTop_toBottomOf="@id/tableLayout_1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/pod"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/timer"
+        app:layout_constraintTop_toBottomOf="@id/tableLayout_1"
+        app:layout_constraintLeft_toRightOf="@id/hint"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/black"
+        android:text="00"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toBottomOf="@id/tableLayout_1"
+        app:layout_constraintRight_toLeftOf="@id/counter"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="3dp"
+        android:text="Использовано попыток: "
+        android:textColor="@color/black"
+        android:paddingTop="6dp"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/counter"
+        app:layout_constraintTop_toBottomOf="@id/tableLayout_1"
+        app:layout_constraintRight_toLeftOf="@id/iz"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="3dp"
+        android:textColor="@color/black"
+        android:text="00"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/iz"
+        app:layout_constraintTop_toBottomOf="@id/tableLayout_1"
+        app:layout_constraintRight_toLeftOf="@id/maxCount"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="3dp"
+        android:textColor="@color/black"
+        android:text="из"
+        android:paddingTop="6dp"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/maxCount"
+        app:layout_constraintTop_toBottomOf="@id/tableLayout_1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:textColor="@color/black"
+        android:text="00"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+
+
+
+    <ProgressBar
+        android:id="@+id/progressBarHorizontal"
+        android:layout_width="match_parent"
+        android:outlineAmbientShadowColor="#28E332"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/timer"
+        android:max="100"
+        android:min="0"
+        android:progress="0"
+        />
+
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="1px"
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/button_1"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+
+            <ImageView
+                android:id="@+id/button_2"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+
+            <ImageView
+                android:id="@+id/button_3"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+
+            <ImageView
+                android:id="@+id/button_4"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/button_5"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+
+            <ImageView
+                android:id="@+id/button_6"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+
+            <ImageView
+                android:id="@+id/button_7"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+
+            <ImageView
+                android:id="@+id/button_8"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/button_9"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+
+            <ImageView
+                android:id="@+id/button_10"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+
+            <ImageView
+                android:id="@+id/button_11"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+
+            <ImageView
+                android:id="@+id/button_12"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/button_13"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+
+            <ImageView
+                android:id="@+id/button_14"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+
+            <ImageView
+                android:id="@+id/button_15"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+
+            <ImageView
+                android:id="@+id/button_16"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="0.5dp"
+                android:src="@drawable/fon1"
+                android:onClick="buttonClick"
+                android:padding="1dp"
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:id="@+id/button_start"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:onClick="start"
+                android:layout_margin="3dp"
+                app:cornerRadius="45dp"
+                android:layout_span="4"
+                android:backgroundTint="#FFEB3B"
+                android:padding="3dp"
+                android:text="ИГРАТЬ"
+                android:textColor="@color/black"
+                android:textSize="16pt" />
+
+
+
+        </TableRow>
+    </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
